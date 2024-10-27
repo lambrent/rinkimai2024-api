@@ -22,10 +22,10 @@ exports.debates = async (req, res) => {
       return res.status(400).json({ error: 'Access denied.' });
     }
     if (data.settings.bucket === 'true') logger.info('Request', { request_id: uid, event: 'request', platform_id: platform.id, platform_name: platform.name, env, target: 'debates' });
-    if (data.settings.json === 'false') return res.json({
-      status: 'STOPPED',
-      data: []
-    });
+    // if (data.settings.json === 'false') return res.json({
+    //   status: 'STOPPED',
+    //   data: []
+    // });
   
     // Group debates by round 1 and 2 and check round settings.
     const debatesRoundGrouped = _.groupBy(data.debates, (debate) => debate.round);
